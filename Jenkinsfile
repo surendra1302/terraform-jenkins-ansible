@@ -31,9 +31,9 @@ pipeline {
                         dir("terraform") {
                            
                             sh '''
-                                if [ -d "terra-cloud" ]; then
+                                if [ -d "terraform-jenkins-ansible" ]; then
                                     echo "Directory exists. Deleting it..."
-                                    rm -rf terraform-jenkins-ansible.git
+                                    rm -rf terraform-jenkins-ansible
                                 fi
                                 echo "Cloning the repository..."
                                 git clone "https://github.com/surendra1302/terraform-jenkins-ansible.git"
