@@ -51,7 +51,8 @@ pipeline {
             }
             
           steps {
-                dir('terraform/terraform-jenkins-ansible') { 
+                dir('terraform/terraform-jenkins-ansible') {
+                    sh 'terraform refresh'
                     sh 'terraform init -input=false'
                     sh 'terraform workspace select ${environment} || terraform workspace new ${environment}'
                     sh "terraform plan -input=false -out tfplan "
