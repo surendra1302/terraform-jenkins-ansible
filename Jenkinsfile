@@ -54,7 +54,7 @@ pipeline {
                 dir('terraform/terraform-jenkins-ansible') {
                     //sh 'terraform refresh'
                     sh 'terraform init -input=false'
-                    sh 'terraform workspace select ${environment} -or-create=false || terraform workspace new ${environment}'
+                    sh 'terraform workspace select ${environment} -or-create=false || terraform workspace new ${environment} -lock=false'
                     sh "terraform plan -input=false -out tfplan "
                     sh 'terraform show -no-color tfplan > tfplan.txt'
                 }
