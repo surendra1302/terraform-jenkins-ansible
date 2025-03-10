@@ -12,8 +12,8 @@ pipeline {
      environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        AWS_DEFAULT_REGION    = "us-east-2"
-        SSH_KEY = "/home/ubuntu/.ssh/revision.pem"  
+        AWS_DEFAULT_REGION    = "us-east-1"
+        SSH_KEY = "/home/ubuntu/.ssh/terraform-kp.pem"  
         ANSIBLE_PLAYBOOK = "apache2.yml"
         GIT_REPO = "https://github.com/surendra1302/Ansible_repo_surendra.git"
     }
