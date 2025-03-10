@@ -1,4 +1,4 @@
-
+#security group
 resource "aws_security_group" "webserver_access" {
         name = "webserver_access"
         description = "allow ssh and http"
@@ -31,12 +31,12 @@ resource "aws_instance" "ourfirst" {
   ami                    = "ami-04b4f1a9cf54c11d0"
   availability_zone      = "us-east-1a"
   instance_type          = "t2.micro"
-  user_data              = filebase64("install_ansible.sh")
-  vpc_security_group_ids = [aws_security_group.webserver_access.name]  # Correct reference
+  #user_data              = filebase64("install_ansible.sh")
+  vpc_security_group_ids = [aws_security_group.webserver_access.id]  # Correct reference
   key_name               = "terraform-kp"
   
   tags = {
-    Name      = "ec2-terraform"
+    Name      = "ec2-test"
     Location  = "Virginia"
   }
 }
